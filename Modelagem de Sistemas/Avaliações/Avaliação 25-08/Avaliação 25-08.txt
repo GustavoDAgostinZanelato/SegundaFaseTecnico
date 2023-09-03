@@ -1,0 +1,143 @@
+ALUNO: GUSTAVO D'AGOSTIN ZANELATO
+TURMA: 2190
+
+PARTE 1:
+
+create table Setor (
+codigo int(5) not null,
+nome varchar(50) not null,
+sala int(2) not null,
+telefone int(10) not null,
+gerente varchar(50) not null,
+primary key(codigo));
+
+crete table Funcionario (
+codigo int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+estado varchar(2) not null,
+telefone int(10) not null,
+salario float(8.2) not null,
+codsetor int(5) not null,
+primary key (codigo)
+foreign key(codsetor) references Setor(codigo));
+
+create table Projeto (
+codigo int (5) not null,
+datainicio date not null,
+datafim date not null,
+descricao varchar(50) not null,
+valor float(10.2) not null,
+codfunc int(5) not null,
+codsetor int (5) not null,
+primary key(codigo),
+foreign key (codfunc) references Funcionario(codigo),
+foreign key (codsetor) references Setor(codigo));
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PARTE 2:
+
+insert setor(codigo,nome,sala,telefone,gerente)
+values (1,"Escritório",1,123456789,"Luciano");
+insert setor(codigo,nome,sala,telefone,gerente)
+values (2,"Montagem",2,2147483647,"Cris");
+insert setor(codigo,nome,sala,telefone,gerente)
+values (3,"Descarte",3,2147483647,"Marcos");
+
+insert funcionario(codigo,nome,endereco,bairro,cidade,estado,telefone,salario,codsetor)
+values (4,"Gustavo","Centro","Centro","Criciúma","SC",123456789,1500,1);
+insert funcionario(codigo,nome,endereco,bairro,cidade,estado,telefone,salario,codsetor)
+values (4,"Fernando","Ouro Negro","Ouro Negro","Criciúma","SC",2147483647,1600,2);
+insert funcionario(codigo,nome,endereco,bairro,cidade,estado,telefone,salario,codsetor)
+values (4,"João","Jardim Angélica","Jardim Angélica","Criciúma","SC",2147483647,1700,3);
+
+insert projeto(codigo,datainicio,datafim,descricao,valor,codfunc,codsetor)
+values (8,"2022/08/22","2023/06/23","Finalizar as peças",10000,5,1);
+
+insert projeto(codigo,datainicio,datafim,descricao,valor,codfunc,codsetor)
+values (9,"2023/06/28","2023/09/28","Finalizar os revisão",20000,6,2);
+
+insert projeto(codigo,datainicio,datafim,descricao,valor,codfunc,codsetor)
+values (10,"2023/10/25","2024/02/25","Finalizar a vistoria",30000,7,3);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PARTE 3:
+
+A)
+insert setor(codigo,nome,sala,telefone,gerente)
+values (4,"Engenharia",5,12345,"João Luiz");
+insert setor(codigo,nome,sala,telefone,gerente)
+values (5,"Paisagismo",6,34567,"Carlos José");
+
+B)
+insert funcionario(codigo,nome,endereco,bairro,cidade,estado,telefone,salario,codsetor)
+values (4,"Ana Maria Silva","Avenida Centenário","Centro","Criciúma","SC",12345,2500,4);
+
+C)
+insert projeto(codigo,datainicio,datafim,descricao,valor,codfunc,codsetor)
+values (4,"2023/08/10","2023/09/10","Asfaltar a rua Churusbamgo Churusbago",325000,6,4);
+
+D)
+update funcionario set bairro = "Próspera"   
+where codigo = 4;                      
+
+E)
+update setor set telefone = 54321   
+where codigo = 4;  
+
+F)
+update projeto set valor = 345000   
+where codigo = 4;   
+
+G)                                   
+delete from setor
+where codigo = 5;
+
+H)
+select * from setor
+
+I)
+select codigo,nome,telefone from funcionario
+
+J)
+select codigo,descricao,valor from projeto
+
+K)
+select * from setor
+where sala = 5  //a sala 5 foi deletada anteriormente
+
+L)
+select * from funcionario
+where nome = "João" 
+
+M)
+select * from projeto
+where datainicio = "2023/08/10" 
+
+N)
+select * from funcionario
+where cidade = "Criciúma" 
+
+O)
+select max(valor) from projeto;
+
+P)
+select min(valor) from projeto;
+
+Q)
+select sum(valor) from projeto;
+
+R)
+select nome from funcionario order by nome asc;
+
+S)
+select sum(salario) from funcionario;
+
+T)
+select * from projeto
+where datainicio >= "2023/08/01"
+and datainicio <= "2023/08/15"
