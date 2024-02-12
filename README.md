@@ -1,2 +1,2 @@
 # SegundaFaseTecnico
-Pasta dedicada para os arquivos das disiciplinas da segunda fase do Técnico de Informática do Colégio Satc
+Pasta dedicada para os arquivos das disciplinas da segunda fase do Técnico de Informática do Colégio Satc
