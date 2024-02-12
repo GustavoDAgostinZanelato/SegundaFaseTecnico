@@ -1,0 +1,39 @@
+<HTML>
+    <HEAD>
+     <TITLE> Exercicio 11 </TITLE>
+     
+     <script>
+        function peso_ideal() {
+            // Solicita o nome, altura e sexo da pessoa
+            var nome = prompt("Informe o nome da pessoa:");
+            var altura = parseFloat(prompt("Informe a altura da pessoa em metros:"));
+            var sexo = prompt("Informe o sexo da pessoa (M para masculino, F para feminino):");
+
+            // Inicializa a variável para armazenar o peso ideal
+            var pesoIdeal;
+
+            // Calcula o peso ideal com base no sexo
+            if (sexo === 'M' || sexo === 'm') {
+                pesoIdeal = (72.7 * altura) - 58;
+            } else if (sexo === 'F' || sexo === 'f') {
+                pesoIdeal = (62.1 * altura) - 44.7;
+            } else {
+                alert("Sexo inválido. Por favor, informe M para masculino ou F para feminino.");
+            }
+
+            // Exibe o resultado
+            if (pesoIdeal !== undefined) {
+                alert("Peso ideal para " + nome + ": " + pesoIdeal.toFixed(2) + " kg");
+            }
+        }
+    </script>   
+    
+    </HEAD>
+    <BODY>
+    <h2> Exercicio 11: Peso Ideal </h2>
+    <form name="form" method="post" action="">
+        <input type="button" name="calcular" id="calcular" value="calcular" onclick="peso_ideal()"
+    </form>
+    </BODY>
+    </HTML>
+    

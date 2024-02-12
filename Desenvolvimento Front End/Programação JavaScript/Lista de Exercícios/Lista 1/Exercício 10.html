@@ -1,0 +1,28 @@
+<HTML>
+    <HEAD>
+     <TITLE> Exercicio 10 </TITLE>
+     <script>
+     
+        function verificacao() {
+            // Solicita o valor ao usuário
+            var valor = parseFloat(prompt("Informe um valor:"));
+
+            // Verifica se o valor é positivo, negativo ou neutro (zero)
+            if (valor > 0) {
+                alert("O valor é positivo.");
+            } else if (valor < 0) {
+                alert("O valor é negativo.");
+            } else {
+                alert("O valor é neutro (zero).");
+            }
+        }
+    </script>   
+    
+</HEAD>
+<BODY>
+<h2> Exercicio 10: Verificador de Numeros </h2>
+<form name="form" method="post" action="">
+    <input type="button" name="calcular" id="calcular" value="calcular" onclick="verificacao()"
+</form>
+</BODY>
+</HTML>  
