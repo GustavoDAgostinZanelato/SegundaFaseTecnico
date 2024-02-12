@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Doceria Jeremias - ENCOMENDAS </title>
+    <link rel="stylesheet" href="Doceria Jeremias - ESTILO.css" type="text/css">
+</head>
+<body>
+</html>
+
+    
+<header>
+    <img src="Imagens Doceria Jeremias\Logo.png" width="240" height="180"> 
+</header>
+
+
+<div class="box_menu">
+    <nav>
+    <ul>
+        <li><a href="Doceria Jeremias - HOME.html" class="menu"> Início </a></li>
+        <li><a href="Doceria Jeremias - DOCES.html" class="menu"> Doces </a></li>
+        <li><a href="Doceria Jeremias - ENCOMENDAS.html" class="menu"> Encomendas </a></li>
+    </ul>
+    </nav>
+</div>
+
+
+<div class="slogan">
+    <img src="Imagens Doceria Jeremias\Imagem Slogan2.png">
+</div>
+
+
+<div class="cadastre_sua_info">
+    <table border="0" width="90%" align="center">
+        <tr>
+        <td><img src="Imagens Doceria Jeremias\01.png" width="150" height="21"></td>
+        <td><h1> Cadastre suas Informações </h1></td>
+        <td><img src="Imagens Doceria Jeremias\02.png" width="150" height="21"></td>
+        </tr>
+    </table>
+
+    <table border="0" width="80%" align="center">
+        <tr>
+            <!-- Nome -->
+            <td>
+                <form name="nome" method="post" action="" align="center" required>
+                Nome    
+                <input type="text" name="nome" id="nome" size="30" color="#6F6E6D"><br></td>
+            
+            <!-- Endereço -->
+            <td>
+                <form name="endereco" method="post" action="" align="center">
+                Endereço       
+                <input type="text" name="enreco" id="endereco" size="30"><br></td>
+            
+            <!-- Cidade -->
+            <td>
+                <form name="cidade" method="post" action="" align="center">
+                 Cidade       
+                <input type="text" name="cidade" id="cidade" size="30"><br></td>
+        </tr>
+        <tr>
+            <!-- CEP -->
+            <td>
+                <form name="CEP" method="post" action="" align="center">
+                 CEP       
+                <input type="text" name="CEP" id="CEP" size="30"><br></td>
+
+            <!-- RG -->
+            <td>
+                <form name="RG" method="post" action="" align="center">
+                 RG       
+                <input type="text" name="RG" id="RG" size="30"><br></td>
+            
+            <!-- CPF -->
+            <td>
+                <form name="CPF" method="post" action="" align="center">
+                 CPF       
+                <input type="text" name="CPF" id="CPF" size="30"><br></td>
+        </tr>
+        <tr>
+
+            <!-- Telefone Residencial -->
+            <td>
+                <form name="telefoneResidensial" method="post" action="" align="center">
+                 Telefone Residencial       
+                <input type="text" name="telefoneResidensial" id="telefoneResidencial" size="30"><br></td>
+
+            <!-- Telefone Celular -->
+            <td>
+                <form name="telefonecelular" method="post" action="" align="center">
+                 Telefone Celular       
+                <input type="text" name="telefonecelular" id="telefonecelular" size="30"><br></td>
+
+            <!-- E-mail -->
+            <td>
+                <form name="e-mail" method="post" action="" align="center">
+                 E-Mail       
+                <input type="text" name="e-mail" id="e-mail" size="30"><br></td>
+        </tr>
+    </table>
+
+    <table border="0" width="45%" align="center">
+        <tr>
+            <!-- Bairro -->
+            <td>
+                <form name="bairro" method="post" action=""align="center"></form>
+                 Bairro     
+                <input type="text" name="bairro" id="bairro" size="30"></td>
+
+            <!-- Estado -->
+            <td>    
+                    Estado <select name="estado" id="estado">
+                    <option value="SC"> Santa Catarina </option>
+                    <option value="RS"> Rio Grande do Sul </option>
+                    <option value="PR"> Paraná </option>
+                    <option value="SP"> São Paulo </option>
+                    <option value="RJ"> Rio de Janeiro </option>
+                    </select></td>
+        </tr>
+    </table>
+
+    <table border="0" width="80%" align="center"></table>
+        <tr>
+            <!-- Botões de Enviar e Limpar -->
+            <td><center> <input type="reset" name="limpar" id="limpar" value="Limpar" class="cta-button"> </a>  <input type="submit" name="enviar" id="enviar" value="Enviar" class="cta-button"></center><br></td>
+        </tr>
+    </table>
+</div>  
+
+
+<div class="info_encomendas">
+    <table border="0" width="90%" align="center">
+        <tr>
+        <td><img src="Imagens Doceria Jeremias\01.png" width="150" height="21"></td>
+        <td><h1> Informações da Encomenda </h1></td>
+        <td><img src="Imagens Doceria Jeremias\02.png" width="150" height="21"></td>
+        </tr>
+    </table>
+
+    <table border="0" width="80%" align="center">
+        <tr>
+            <!-- Data de Entrega -->
+            <td> Data de Entrega: <input type="date" name="datadeentrada" id="datadeentrada"></td>
+        
+            <!-- Horário de Entrega -->
+            <td> Horário de Entrega: <input type="time" name="horarioentrega" id="horarioentrega"></td> 
+        </tr>
+        <tr>
+            <!-- Tipo de Evento -->
+            <td>    
+                    Tipo de Evento: <select name="evento" id="evento">
+                    <option value="AN"> Aniversário </option>
+                    <option value="CA"> Casamento </option>
+                    <option value="FI"> Festa Infantis </option>
+                    <option value="EC"> Eventos Coorporativos </option>
+                    <option value="ER"> Encontros Românticos </option>
+                    </select></td>
+            
+            <!-- Tipo de Encomenda -->
+            <td>    
+                    Tipo de Encomenda: <select name="tipo_encomenda" id="tipo_encomenda">
+                    <option value="BC"> Bolos Clásicos </option>
+                    <option value="CD"> Cupcakes Decorados </option>
+                    <option value="DT"> Doces Tradicionais </option>
+                    </select></td>
+        </tr>
+    </table>
+
+    <table border="0" width="45%" align="center">
+        <tr>
+            <!-- Quantidade Desejada -->
+            <td>
+                <form name="qtd_desejada" method="post" action=""align="center"></form>
+                 Quantidade Desejada:     
+                <input type="text" name="qtd_desejada" id="qtd_desejada" size="30"></td>
+        </tr>
+    </table>
+
+    <table border="0" width="80%" align="center"></table>
+        <tr>
+            <!-- Botões de Enviar e Limpar -->
+            <td><center> <input type="reset" name="limpar" id="limpar" value="Limpar" class="cta-button"> </a>  <input type="submit" name="enviar" id="enviar" value="Enviar" class="cta-button"></center><br></td>
+        </tr>
+    </table>
+</div> 
+
+
+<div class="footer_encomendas">
+    <table border="0" width="60%" align="center">
+        <tr>
+    <td> Cada mordida, um abraço açucarado </td>
+    <td> | </td>
+    <td> <h5> Doceria Jeremias</h5> </td>
+    </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
