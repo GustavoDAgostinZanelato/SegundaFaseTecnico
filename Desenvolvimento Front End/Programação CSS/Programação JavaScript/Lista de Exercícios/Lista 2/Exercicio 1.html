@@ -1,0 +1,37 @@
+<HTML>
+    <HEAD>
+    <meta charset="UTF-8">
+     <TITLE> Exercicio 1 </TITLE>
+     <script>
+
+        function kelvin() {
+            var temp = eval(prompt("Informe a valor a temperatura atual em Célsius para conversão"));
+            var temp_kelvin = temp + 273
+
+            alert("A temperatura atual em KELVIN é: " +temp_kelvin)   
+        }
+
+        function fahrenheit() {
+            var temp = eval(prompt("Informe a valor a temperatura atual em Célsius para conversão"));
+            var temp_fah = temp * 1.8 + 32
+
+            alert("A temperatura atual em FAHRENHEIT é: " +temp_fah)   
+        }
+
+    </script>   
+    
+    </HEAD>
+    <BODY>
+    <h2> Exercicio 1: Calculo Temperatura </h2>
+
+    <form name="form" method="post" action="">  
+        <input type="button" name="calcular" id="calcular" value="Temperatura Kelvin" onclick="kelvin()"
+    </form>
+
+    <form name="form" method="post" action="">
+        <input type="button" name="calcular" id="calcular" value="Temperatura Fahrenheit" onclick="fahrenheit()"
+    </form>
+    
+    </BODY>
+    </HTML>
+    

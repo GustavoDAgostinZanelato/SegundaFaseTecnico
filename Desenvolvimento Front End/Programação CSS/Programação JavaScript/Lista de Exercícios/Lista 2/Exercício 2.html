@@ -1,0 +1,67 @@
+<HTML>
+    <HEAD>
+    <meta charset="UTF-8">
+     <TITLE> Exercicio 2 </TITLE>
+     <script>
+
+        function adicao() {
+            var valor1 = eval(prompt("Informe o primeiro valor"));
+            var valor2 = eval(prompt("Informe o segundo valor"));
+
+            var resultado = (valor1 + valor2)
+        
+            alert("O reusultado da operação foi: " +resultado)   
+        }
+
+        function sub() {
+            var valor1 = eval(prompt("Informe o primeiro valor"));
+            var valor2 = eval(prompt("Informe o segundo valor"));
+
+            var resultado = (valor1 - valor2)
+        
+            alert("O reusultado da operação foi: " +resultado)   
+        }
+
+        function div() {
+            var valor1 = eval(prompt("Informe o primeiro valor"));
+            var valor2 = eval(prompt("Informe o segundo valor"));
+
+            var resultado = (valor1 / valor2)
+        
+            alert("O reusultado da operação foi: " +resultado)   
+        }
+
+        function multi() {
+            var valor1 = eval(prompt("Informe o primeiro valor"));
+            var valor2 = eval(prompt("Informe o segundo valor"));
+
+            var resultado = (valor1 * valor2)
+        
+            alert("O reusultado da operação foi: " +resultado)   
+        }
+
+    </script>   
+    
+    </HEAD>
+    <BODY>
+    <h2> Exercicio 2: Calculadora </h2>
+
+    <form name="form" method="post" action="">  
+        <input type="button" name="calcular" id="calcular" value="Adição" onclick="adicao()"
+    </form>
+
+    <form name="form" method="post" action="">
+        <input type="button" name="calcular" id="calcular" value="Subtração" onclick="sub()"
+    </form>
+
+    <form name="form" method="post" action="">
+        <input type="button" name="calcular" id="calcular" value="Divisão" onclick="div()"
+    </form>
+
+    <form name="form" method="post" action="">
+        <input type="button" name="calcular" id="calcular" value="Multiplicação" onclick="multi()"
+    </form>
+    
+    </BODY>
+    </HTML>
+    

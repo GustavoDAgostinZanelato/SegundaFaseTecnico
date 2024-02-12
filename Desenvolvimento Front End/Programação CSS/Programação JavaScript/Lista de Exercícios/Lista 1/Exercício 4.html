@@ -1,0 +1,30 @@
+<HTML>
+    <HEAD>
+     <TITLE> Exercicio 4 </TITLE>
+     <script>
+     
+        function validar() {
+            // Solicita a idade do usuário
+            var idade = prompt("Por favor, informe sua idade:");
+            
+            // Converte a entrada para um número inteiro
+            idade = parseInt(idade);
+            
+            // Verifica se o usuário é menor de idade
+            if (idade <= 18) {
+                alert("Você é maior de idade.");
+                
+            } else {
+                alert("Você é menor de idade.");
+            }
+        }
+    </script>   
+    
+</HEAD>
+<BODY>
+<h2> Exercicio 4: Verificador de Idade </h2>
+<form name="form" method="post" action="">
+    <input type="button" name="calcular" id="calcular" value="calcular" onclick="validar()"
+</form>
+</BODY>
+</HTML>  

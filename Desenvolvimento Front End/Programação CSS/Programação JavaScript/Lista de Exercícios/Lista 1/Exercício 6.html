@@ -1,0 +1,26 @@
+<HTML>
+    <HEAD>
+     <TITLE> Exercicio 6 </TITLE>
+     <script>
+     
+        function area() {
+            //Solicita a Base e a Altura do Retangulo
+            var base = parseFloat(prompt("Informe a base do retângulo: "));
+            var altura = parseFloat(prompt("Informe a altura do retângulo: "));
+
+             // Calculo da Area
+             var area_r = base * altura;
+
+             // Exibe o Resultado
+            alert("A área do su retângulo é de: " + area_r.toFixed(2));
+        }
+    </script>   
+    
+</HEAD>
+<BODY>
+<h2> Exercicio 6: Area do Retagulo </h2>
+<form name="form" method="post" action="">
+    <input type="button" name="calcular" id="calcular" value="calcular" onclick="area()"
+</form>
+</BODY>
+</HTML>  

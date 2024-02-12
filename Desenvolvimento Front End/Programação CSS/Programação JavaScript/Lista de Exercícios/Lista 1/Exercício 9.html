@@ -1,0 +1,27 @@
+<HTML>
+    <HEAD>
+     <TITLE> Exercicio 9 </TITLE>
+     <script>
+     
+        function calculo() {
+            // Solicita os 3 números ao usuário
+            var salario = parseFloat(prompt("Informe seu salário mensal: "));
+            var porcentagem = parseFloat(prompt("Informe a porcentagem do reajuste: "));
+
+            // Calculo do reajuste
+            var reajuste = (porcentagem/100 * salario) + salario
+
+            // Exibe o resultado
+            alert("Seu novo salário é de: " +reajuste);
+
+        }
+    </script>   
+    
+</HEAD>
+<BODY>
+<h2> Exercicio 9: Reajuste Salarial </h2>
+<form name="form" method="post" action="">
+    <input type="button" name="calcular" id="calcular" value="calcular" onclick="calculo()"
+</form>
+</BODY>
+</HTML>  

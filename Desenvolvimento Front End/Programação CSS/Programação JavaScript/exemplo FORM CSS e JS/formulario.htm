@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<title>Formulário Exemplo</title>
+<link href="formulario.css" rel="stylesheet">
+<script type="text/javascript" src="estilo.js"> </script>
+</head>
+
+<body>
+<form name="meu_form" id="meu_form" method="post" action="">
+
+  <h1>Formulário de contato: </h1>
+  
+  <label for="nome">Nome</label>
+  <input type="text" id="nomeid" placeholder="" required="required" name="nome" >
+  <br>
+  <label for="fone">Fone:</label>
+  <input type="tel" id="foneid" placeholder="" name="telefone" >
+  <br>
+  <label for="email">Email</label>
+  <input type="email" id="emailid" placeholder="" name="email" >
+  <br>
+  <textarea placeholder="Deixe aqui seu comentário"></textarea>
+
+  <input type="submit" class="enviar" onclick="Enviar();" value="Enviar" />
+</form>
+</body>
+</html>

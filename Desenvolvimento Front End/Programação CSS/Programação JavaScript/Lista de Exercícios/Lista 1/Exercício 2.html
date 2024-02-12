@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+ <TITLE> Exercicio 2 </TITLE>
+ <script>
+    function quadrado() {
+     var num1 = eval(prompt("Digite valor1 ",""));
+     var num2 = eval(prompt("Digite valor2",""));
+     var num3 = eval(prompt("Digite valor3",""));
+     var quadrado1 = (num1 * num1);
+     var quadrado2 = (num2 * num2);
+     var quadrado3 = (num3 * num3);
+     mensagem1 = "Quadrado valor: "+num1+" = "+quadrado1;
+     alert(mensagem1);
+     mensagem2 = "Quadrado valor: "+num2+" = "+quadrado2;
+     alert(mensagem2);
+     mensagem3 = "Quadrado valor: "+num3+" = "+quadrado3;
+     alert(mensagem3);
+    }
+</script>   
+
+</HEAD>
+<BODY>
+<h2> Exercicio 2: Calculo do Quadrado dos Numeros </h2>
+<form name="form" method="post" action="">
+    <input type="button" name="calcular" id="calcular" value="calcular" onclick="quadrado()"
+</form>
+</BODY>
+</HTML>
