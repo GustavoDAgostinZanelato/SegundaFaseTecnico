@@ -1,0 +1,283 @@
+/* Body com as formatações gerais da página */
+body {
+    background-image: url('Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Estilo do Cabeçalho */
+header {
+    background-color: #F1F1F1;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/* Estilo da box do menu além da formatação do texto e botão */
+.box_menu{
+    background-color: #231F20;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+.menu {
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 5px;    
+}
+.menu:hover {
+    border: 1px solid #fff; 
+}
+
+
+/* Definindo a disposição e a separação dos links no menu */
+nav li {
+    display: inline;
+    margin-right: 50px;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+                             /* Página Início */
+/* ----------------------------------------------------------------------- */
+
+/* Slogan da Doceria Jeremias */
+.slogan img {
+    position: absolute;
+    width: 80%; 
+    height: 450px;
+    top: 489px;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza a imagem com base no seu próprio tamanho */   
+    border-radius: 5px;
+}
+
+
+/* Define a formatação da box e dos textos sobre as informações da Doceria Jeremias */
+.secao_box{
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos igualmente ao longo do eixo principal (horizontal) */
+    width: 80%;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    background-size: cover;
+    position: absolute; 
+    top: 730px;
+    left: 10%;
+}
+.box {
+    border: 3px solid #C3BFBD;
+    background-color: #fff;
+    color: #fff;
+    padding: 5px;   
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center; 
+}
+
+
+/* Formatação da box e do texto da seção dos Mais Vendidos */
+.box_os_mais_vendidos{
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%;
+    position: absolute; 
+    top: 945px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto;
+    justify-content:center;
+    border-radius: 8px; 
+}
+
+
+/* Formatação da box e do texto da seção Você Também vai Gostar */
+.vc_vai_gostar {
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; /* Define a largura desejada, neste caso, 80% da página */
+    position: absolute; 
+    top: 1480px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    justify-content:center;
+    border-radius: 8px;
+}
+
+
+                             /* Página Doces */
+/* ----------------------------------------------------------------------- */
+
+
+/* Formatação da box dos Bolos Clássicos */
+.bolos_classicos{
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; 
+    position: absolute; 
+    top: 315px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; 
+    justify-content:center;
+    border-radius: 8px;
+}
+
+
+/* Formatação da box dos Cupcakes Decorados */
+.cupcakes_decorados{
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; /* Define a largura desejada, neste caso, 80% da página */
+    position: absolute; 
+    top: 1135px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    justify-content:center;
+    border-radius: 5px;
+}
+
+
+/* Formatação da box dos Doces Tradicionais*/
+.doces_tradicionais{
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; /* Define a largura desejada, neste caso, 80% da página */
+    position: absolute; 
+    top: 1950px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    justify-content:center;
+    border-radius: 5px;
+}
+
+
+                             /* Página Encomendas */
+/* ----------------------------------------------------------------------- */
+
+
+/* Formatação da box da cadastro das informações pessoais*/
+.cadastre_sua_info {
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; /* Define a largura desejada, neste caso, 80% da página */
+    position: absolute; 
+    top: 750px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    justify-content:center;
+    border-radius: 8px;
+}
+
+
+/* Formatação da box da cadastro das informações da encomenda*/
+.info_encomendas {
+    border: 5px solid #C3BFBD;
+    background-color: #fff;
+    width: 80%; /* Define a largura desejada, neste caso, 80% da página */
+    position: absolute; 
+    top: 1270px;
+    left: 10%;
+    margin: 50px;
+    margin: 0 auto; /* Centraliza a linha de blocos horizontalmente */
+    justify-content:center;
+    border-radius: 8px;
+}
+
+
+                             /* Demais Configurações*/
+/* ----------------------------------------------------------------------- */
+
+
+/* Estilos do rodapé */
+.footer_inicio {
+    background-color: #231F20;
+    color:#fff;
+    position: absolute;     
+    top: 2025px;   
+    width: 100%; 
+    font-size: 30px;
+}
+.footer_doces {
+    background-color: #231F20;
+    color:#fff;
+    position: absolute;     
+    top: 2770px;   
+    width: 100%; 
+    font-size: 30px;
+}
+.footer_encomendas {
+    background-color: #231F20;
+    color:#fff;
+    position: absolute;     
+    top: 1670px;   
+    width: 100%; 
+    font-size: 30px;
+}
+
+
+/* Formatação dos botões das páginas   */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #DA994F;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;  
+}
+.cta-button:hover {
+    background-color: #D37F21;
+}
+
+
+/* Cetraliza verticalmente os itens dentro da Table */
+th, td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* Configurações dos textos usados no site */
+h1 {
+    font-size: 30px;
+    color:#231F20; 
+    margin: 15px;
+}
+h2 {
+    font-size: 25px;
+    color: #231F20;    
+}
+h3 {
+    font-size: 22px;
+    color:#231F20; 
+    margin: 1px;   
+}
+h4 {
+    font-size: 15px;
+    color:#DA994F;
+    margin: 1px;
+}
+h5 {
+    font-size: 30px;
+    color: #DA994F;
+    margin:15px;
+}
+h6 {
+    font-size: 15px;
+    color:#707070;
+}
