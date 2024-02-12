@@ -1,0 +1,16 @@
+/* ************************************************************************
+
+Colégio SATC
+Curso Técnico de Informática
+Disciplina: IoT
+Turma: 2190
+Professor: Marcos Antonio Jeremias Coelho
+
+Programa: Título
+
+Autor: Gustavo D'Agostin Zanelato
+Data: 00/00/00
+Versão: 0.0
+
+************************************************************************ */
+
