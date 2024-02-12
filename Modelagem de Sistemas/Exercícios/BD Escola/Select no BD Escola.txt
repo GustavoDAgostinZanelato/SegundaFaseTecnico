@@ -1,0 +1,196 @@
+1) Criando as Tabelas do Banco de Dados de uma Escola
+
+create table Cursos(
+codcurso int(5) not null,
+nome varchar(50) not null,
+sala int(5) not null,
+telefone int(5) not null,
+primary key (codcurso));
+
+-----------------------------
+
+create table Coordenadores(
+codcoordenador int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+cidade varchar(50) not null,
+estado varchar(50) not null,
+telefone int(10) not null,
+salario float(8.2) not null,
+codcurso int(5) not null,
+primary key (codcoordenador),
+foreign key (codcurso) references Cursos (codcurso));
+
+-----------------------------
+
+create table Disciplina(
+coddisciplina int(5) not null,
+nome varchar(50) not null,
+cargahoraria int(5) not null,
+ementa varchar(50) not null,
+codcurso int(5) not null,
+primary key (coddisciplina),
+foreign key (codcurso) references Cursos (codcurso));
+
+-----------------------------
+
+create table Professores (
+codprofessor int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+cidade varchar(50) not null,
+estado varchar(50) not null,
+telefone int(10) not null,
+escolaridade varchar(50) not null,
+salario float(8.2) not null,
+coddisciplina int(5) not null,
+primary key (codprofessor),
+foreign key (coddisciplina) references Disciplina (coddisciplina));
+
+-----------------------------
+
+create table Alunos (
+codaluno int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+cidade varchar(50) not null,
+estado varchar(50) not null,
+telefone int(10) not null,
+sexo varchar(50) not null,
+datanascimento date not null,
+codcurso int(5) not null,
+primary key (codaluno),
+foreign key (codcurso) references Cursos (codcurso));
+
+-----------------------------
+
+create table Projetos (
+codprojeto int(5) not null,
+datainicial date not null,
+datefinal date not null,
+tema varchar(50) not null,
+codaluno int(5) not null,
+codprofessor int(5) not null,
+nota varchar(4.2) not null,
+primary key (codprojeto),
+foreign key (codaluno) references Alunos (codaluno),
+foreign key (codprofessor) references Professores (codprofessor));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) Inserindo Selects nas tableas acima
+
+insert Cursos (codcurso, nome, sala, telefone)
+values (1,"Administração",1,123);
+insert Cursos (codcurso, nome, sala, telefone)
+values (1,"Informática",2,456);
+insert Cursos (codcurso, nome, sala, telefone)
+values (1,"Design",3,789);
+
+-----------------------------
+
+insert Coordenadores (codcoordenador, nome, endereco, cidade, estado, telefone, salario, codcurso)
+values (1,"Mangili","Centro","Criciúma","SC",123,1500,1);
+insert coordenadores (codcoordenador, nome, endereco, cidade, estado, telefone, salario, codcurso)
+values (2,"Edson Presença","Pinheirinho","Criciúma","SC",456,1600,2);
+insert coordenadores (codcoordenador, nome, endereco, cidade, estado, telefone, salario, codcurso)
+values (3,"Albertina","Jardim Angélica","Criciúma","SC",789,1700,3);
+
+-----------------------------
+
+insert Disciplinas (coddisciplinas, nome, cargahoraria, ementa, codcurso)
+values (1,"Matemática Finsnceira", 3, "Cálculos e Estatística",1); 
+insert Disciplinas (coddisciplinas, nome, cargahoraria, ementa, codcurso)
+values (2,"Jogos", 5, "Jogos Digitais",2); 
+insert Disciplinas (coddisciplinas, nome, cargahoraria, ementa, codcurso)
+values (3,"Fotografia", 4, "Fotografia e Iluminação",3); 
+
+-----------------------------
+
+insert Professores (nome, endereco, cidade, estado, telefone, escolaridade, salario, coddisciplina)
+values (1,"Marcio","Centro","Criciúma","SC",123,"Pós-Gradução",2000,1);
+insert Professores (nome, endereco, cidade, estado, telefone, escolaridade, salario, coddisciplina)
+values (2,"Mariane Melo","Pinheirinho","Criciúma","SC",456,"Mestrado",3000,2)
+insert Professores (nome, endereco, cidade, estado, telefone, escolaridade, salario, coddisciplina)
+values (3,"Deise","Quarta Linha","Criciúma","SC",789,"Graduação",2500,3);
+
+-----------------------------
+
+insert Alunos (codaluno, nome, endereco, cidade, estado, telefone, sexo, datanascimento, codcurso)
+values (1,"Ana Júlia","Centro","Criciúma","SC",123,"Feminino","2006/05/02",1);
+insert Alunos (codaluno, nome, endereco, cidade, estado, telefone, sexo, datanascimento, codcurso)
+values (2,"João","Centro","Içara","SC",456,"Masculino","2007/06/03",2);
+insert Alunos (codaluno, nome, endereco, cidade, estado, telefone, sexo, datanascimento, codcurso)
+values (3,"Maria","Centro","Araranguá","SC",789,"Feminino","2006/10/28",3);
+insert Alunos (codaluno, nome, endereco, cidade, estado, telefone, sexo, datanascimento, codcurso)
+values (4,"Ana Clara","Centro","Criciúma","SC",987,"Feminino","2005/01/13",2);
+
+-----------------------------
+
+insert Projetos (codprojeto, datainicial, datefinal, tema, codaluno, codprofessor, nota)
+values (1,"2023/09/05","2023/09/15","Plano Financeiro",1,1,8.5);
+insert Projetos (codprojeto, datainicial, datefinal, tema, codaluno, codprofessor, nota)
+values (2,"2023/09/06","2023/09/20","Jogo Educativo",2,2,8.0);
+insert Projetos (codprojeto, datainicial, datefinal, tema, codaluno, codprofessor, nota)
+values (3,"2023/09/05","2023/09/25","Portifólio Moda",3,3,9.0);
+insert Projetos (codprojeto, datainicial, datefinal, tema, codaluno, codprofessor, nota)
+values (4,"2023/09/06","2023/09/20","Jogo Edicativo",4,4,8.5);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3)Selecionando Dados nas Tabelas
+
+//Exibindo todos os elementos de cada uma das tabelas
+a) select * from Cursos;
+b) select * from Coordenadores;
+c) select * from Disciplinas;
+d) select * from Professores;
+
+
+//Exibindo apenas as informações do nome dos cursos e seus respectivos coordenadores
+a) select cursos.nome, coordenadores.nome
+   from cursos, coordenadores
+   where cursos.codcurso = coordenadores.codcurso;
+
+b) select disciplina.nome, professores.nome
+   from disciplina, professores
+   where disciplina.coddisciplina = professores.coddisciplina;
+
+c) select alunos.nome, curso.nome
+   from alunos, cursos				
+   where cursos.codcurso = alunos.codcurso
+
+d) select projetos.tema, alunos.nome, professores.nome
+   from projetos, alunos, professores
+   where projetos.codaluno = alunos.codaluno
+   and projetos.codprofessor = professores.codprofessor
+
+e) select cursos.codcurso, cursos.nome, coordenadores.codcoordenador, coordenadores.nome
+   from cursos, coordenadores
+   where cursos.codcurso = coordenadores.codcurso
+
+f) select alunos.codaluno, alunos.nome, alunos.telefone, cursos.codcurso, cursos.nome
+   from alunos, cursos
+   where cursos.codcurso = alunos.codcurso;
+
+g) select projetos.codprojeto, projetos.tema, projetos.datainicial, alunos.codaluno, alunos.nome, professores.codprofessor, professores.nome
+   from projetos, alunos, professores
+   where projetos.codaluno = alunos.codaluno
+   and projetos.codprofessor = professores.codprofessor;
+
+h) select cursos.codcurso, cursos.nome, coordenadores.codcoordenador, coordenadores.nome, disciplina.coddisciplina, disciplina.nome
+   from cursos, coordenadores, disciplina
+   where cursos.codcurso = coordenadores.codcurso
+   and cursos.codcurso = disciplina.codcurso;
+
+i) select cursos.codcurso, cursos.nome, coordenadores.codcoordenador, coordenadores.nome, alunos.codaluno, alunos.nome, disciplina.coddisciplina, disciplina.nome
+   from cursos, coordenadores, alunos, disciplina
+   where cursos.codcurso = disciplina.codcurso
+   and cursos.codcurso = coordenadores.codcurso;
+
+
+
+
+
+
+

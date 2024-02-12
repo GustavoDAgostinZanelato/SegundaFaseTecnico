@@ -1,0 +1,183 @@
+PARTE 1:
+
+create table Clientes(
+cpf int(12) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+cidade varchar(50) not null,
+estado varchar(50) not null,
+telefone int(10) not null,
+primary key (cpf));
+
+
+create table produtos(
+codigo int(5) not null,
+nome varchar(50) not null,
+tamanho int(2) not null,
+cor varchar(50) not null,
+marca varchar(50) not null,
+quantidade int(5) not null,
+preco float(6.2) not null,
+primary key (codigo));
+
+create table vendas(
+codigo int(5) not null,
+data date not null,
+cpfcliente int(12) not null,
+codproduto int(5) not null,
+quantidade int(5) not null,
+valor float(6.2) not null,
+primary key (codigo),
+foreign key (cpfcliente) references clientes (cpf),
+foreign key (codproduto) references produtos (codigo));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PARTE 2:
+
+insert clientes (cpf, nome, endereco, cidade, estado, telefone)
+values (123, "Gustavo","Centro","Criciúma","SC",321);
+insert clientes (cpf, nome, endereco, cidade, estado, telefone)
+values (456, "Pedro","Centro","Içara","SC",654);
+insert clientes (cpf, nome, endereco, cidade, estado, telefone)
+values (789, "João","Ouro Negro","Forquilhinha","SC",987);
+
+insert produtos (codigo, nome, tamanho, cor, marca, quantidade, preco)
+values (111, "Sandália","40","Preto","Adidas",3,100);
+insert produtos (codigo, nome, tamanho, cor, marca, quantidade, preco)
+values (222, "Crocs","33","Azul","Nike",2,75);
+insert produtos (codigo, nome, tamanho, cor, marca, quantidade, preco)
+values (333, "Meia","35","Branco","Puma",1,12);
+
+insert vendas (codigo, data, cfpcliente, codproduto, quantidade, valor)
+values (963,"2023/09/22",123,111,7,100);
+insert vendas (codigo, data, cfpcliente, codproduto, quantidade, valor)
+values (852,"2023/09/21",456,222,6,75);
+insert vendas (codigo, data, cfpcliente, codproduto, quantidade, valor)
+values (741,"2023/09/20",789,333,2,12);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PARTE 3: 
+
+insert produtos (codigo, nome, tamanho, cor, marca, quantidade, preco)
+values (4, "Tenis","40","Azul","Adidas",10,265);
+insert produtos (codigo, nome, tamanho, cor, marca, quantidade, preco)
+values (5, "Tenis","38","Vermelho","Nike",10,285);
+
+
+insert clientes (cpf, nome, endereco, cidade, estado, telefone)
+values (12345, "Ana Maria","Centro","Araranguá","SC",1122);
+
+
+insert vendas (codigo, data, cfpcliente, codproduto, quantidade, valor)
+values (4,"2023/09/20",12345,4,1,265);
+insert vendas (codigo, data, cfpcliente, codproduto, quantidade, valor)
+values (5,"2023/09/21",12345,5,1,285);
+
+
+update clientes set cidade = "Içara"   
+where cpf = 12345;   
+
+
+update produtos set preco = 275 
+where codigo = 4;  
+
+
+update produtos set tamanho = 36
+where codigo = 5; 
+
+
+select clientes.cpf, clientes.nome, clientes.telefone
+from clientes
+where cidade = "Criciúma";
+
+
+select produtos.codigo, produtos.nome, produtos.quantidade, produtos.preco
+from produtos
+where tamanho = 36;
+
+
+select  clientes.cpf, clientes.nome, clientes.endereco, clientes.cidade, clientes.estado, clientes.telefone
+from clientes
+where nome like "%Ana%"
+and cidade = "Içara";
+
+
+select from vendas
+where data >= "2023/09/01"
+and data <= "2023/09/30";
+
+
+select vendas.quantidade
+from vendas
+where quantidade > 5;
+
+
+select vendas.valor
+from vendas
+where data like "%2023%";
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas
+where vendas.cpf = cliente.cpf 
+and nome = "Ana Maria";
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, clientes
+where clientes.cpf = vendas.cpfcliente
+and nome = "Ana Maria";
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and nome = "tenis"
+and marca = "Nike"; //O meu não apresenta a marca Vans
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and nome = "tenis"
+and data >= "%07%"
+and data <= "%08%";
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and marca = "Adidas"
+and tamanho = 39
+and valor < 250;
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and nome = "tenis"
+and tamanho = 39
+and tamanho = 40
+and marca = "Nike"
+and valor > 250;
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and nome = "Chinelo"
+and marca = "Adidas"
+and data like "%2023%";
+
+
+select vendas.codigo, vendas.data, vendas.cpfcliente, vendas.codproduto, vendas.quantidade, vendas.valor
+from vendas, produtos
+where produtos.codigo = vendas.codproduto
+and nome = "tenis"
+and marca = "vans"
+and preco > 200;
+
+
+

@@ -1,0 +1,566 @@
+1)CRIANDO AS TABELAS DA CLINICA MÉDICA
+
+create table cargos (
+codigo    int(5)      not null,
+nome      varchar(25) not null,
+descricao varchar(50) not null,
+primary key (codigo));
+
+create table convenios (
+codigo      int(5)      not null,
+nome        varchar(25) not null, 
+datainicio  date        not null,
+primary key (codigo));
+
+create table funcionarios (
+codigo      int(5)      not null,
+nome        varchar(25) not null,
+rg          int(10)     not null,
+cpf         int(10)     not null,
+codcargo    int(5)      not null,
+endereco    varchar(30) not null,
+numero	int(5)      not null,
+complemento varchar(30) not null,
+bairro      varchar(30) not null,
+cep         int(8)      not null,
+residencial int(10)     not null,
+celular     int(10)     not null,
+primary key (codigo),
+foreign key (codcargo) references cargos (codigo));
+
+create table medicos (
+codigo         int(5)      not null,
+nome           varchar(25) not null,
+rg             int(10)     not null,
+cpf            int(10)     not null,
+crm            int(10)     not null,
+area           varchar(25) not null,
+especialidade  varchar(25) not null,
+usuario        varchar(10) not null,
+senha          varchar(10) not null,
+flag           varchar(5)  not null,
+contador       int(5)      not null,
+primary key (codigo));
+
+
+create table tipos (
+codigo   int(5)      not null,
+nome     varchar(25) not null,
+valor    float(6,2)  not null,
+primary key (codigo));
+
+
+create table exames (
+codigo      int(5)      not null,
+nome        varchar(25) not null,
+observacao  varchar(50) not null,
+primary key (codigo));
+
+
+create table medicamentos (
+codigo            int(5)      not null,
+nome              varchar(25) not null,
+posologia         varchar(50) not null,
+laboratorio       varchar(25) not null,
+contraindicacoes  varchar(50) not null,
+primary key (codigo));
+
+
+create table pacientes (
+codigo      int(5)      not null,
+nome        varchar(25) not null,
+rg          int(10)     not null,
+cpf         int(10)     not null,
+endereco    varchar(30) not null,
+numero	int(5)      not null,
+complemento varchar(30) not null,
+bairro      varchar(30) not null,
+cep         int(8)      not null,
+residencial int(10)     not null,
+celular     int(10)     not null,
+primary key (codigo));
+
+
+create table consultas (
+codigo         int(5)   not null,
+dataconsulta   date     not null,
+horaconsulta   time     not null,
+codpaciente    int(5)   not null,
+codconvenio    int(5)   not null,
+codmedico      int(5)   not null,
+codtipo        int(5)   not null,
+primary key (codigo),
+foreign key (codpaciente) references pacientes (codigo),
+foreign key (codconvenio) references convenios (codigo),
+foreign key (codmedico) references medicos (codigo),
+foreign key (codtipo) references tipos (codigo));
+
+
+create table prontuarios (
+codigo         int(5)      not null,
+codpaciente    int(5)      not null,
+codmedicamento int(5)      not null,
+posologia      varchar(50) not null,
+datainicio     date        not null,
+datafim        date        not null,
+codexame       int(5)      not null,
+dataexame      date        not null,
+resultado      varchar(50) not null,
+observacoes    varchar(50) not null,
+primary key (codigo),
+foreign key (codpaciente) references pacientes (codigo),
+foreign key (codmedicamento) references medicamentos (codigo),
+foreign key (codexame) references exames (codigo));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2)CRIANDO OS INSERTS
+
+insert cargos (codigo,nome,descricao)
+values (1,"cirurgião","faz cirurgia")
+
+insert cargos (codigo,nome,descricao)
+values (2,"enfermeiro","visitação de pacientes")
+
+insert cargos (codigo,nome,descricao)
+values (3,"farmaceutico","área de medicamentos")
+
+----------------------------
+
+insert convenio(codigo,nome,datainicio)
+values (1,"Unimed","2023/08/05");
+
+insert convenio(codigo,nome,datainicio)
+values (2,"SUS","2023/09/15");
+
+insert convenios (codigo, nome, datainicio)
+values (3,"Saúde São José", "2023/01/05");
+
+insert convenios (codigo, nome, datainicio)
+values (4,"Socimed", "2023/01/05");
+
+----------------------------
+
+insert funcionarios (codigo, nome, rg, cpf, codcargo, endereco, numero, complemento, bairro, cep, residencial, celular)
+values (1,"Ana Maria", 123, 123, 1, "Rua ABC Criciuma SC",
+123, "casa", "Centro", 88800, 12345, 12345);
+
+insert funcionarios (codigo, nome, rg, cpf, codcargo, endereco, numero, complemento, bairro, cep, residencial, celular)
+values (2,"Sandra Regina", 345, 345, 2, "Rua XYZ Criciuma SC",
+345, "apartamento", "Centro", 88800, 34567, 34567);
+
+insert funcionarios (codigo, nome, rg, cpf, codcargo, endereco, numero, complemento, bairro, cep, residencial, celular)
+values (3,"Carlos Jose", 456, 456, 3, "Avenida Centenario Criciuma SC",
+456, "casa", "Pinheirinho", 88800, 45678, 45678);
+
+insert funcionarios (codigo, nome, rg, cpf, codcargo, endereco, numero, complemento, bairro, cep, residencial, celular)
+values (4,"Maria Luiza", 678, 678, 4, "Rua ABC Criciuma SC",
+678, "casa", "Prospera", 88800, 67890, 67890);
+
+----------------------------
+
+insert medicos (codigo, nome, rg, cpf, crm, area, especialidade,usuario, senha, flag, contador)
+values (1,"Dr. Aline", 321, 321, 321, "Pediatria", "Pediatria e Imunologia","aline", "321", "aline", 0);
+ 
+insert medicos (codigo, nome, rg, cpf, crm, area, especialidade, usuario, senha, flag, contador)
+values (2,"Dr. Giovane", 654, 654, 654, "Ortopedia", "Ortopedia Infantil","giovane", "654", "giovane", 0);
+
+insert medicos (codigo, nome, rg, cpf, crm, area, especialidade, usuario, senha, flag, contador)
+values (3,"Dr. Ana Claudia", 789, 789, 789, "Ortopedia", "Ortopedia Adulto","ana", "789", "ana", 0);
+
+insert medicos (codigo, nome, rg, cpf, crm, area, especialidade, usuario, senha, flag, contador)
+values (4,"Dr. Andre Luiz", 741, 741, 741, "Endocrinologista", "Endocrinologista Infantil", "andre", "741", "andre", 0);
+
+insert tipos (codigo, nome, valor)
+values (1,"Particular Integral",600.000);
+
+----------------------------
+
+insert tipos (codigo, nome, valor)
+valeus (2,"Particular 50%",300.000);
+
+insert tipos (codigo, nome, valor)
+valeus (3,"Unimed 50%",300.000);
+
+insert tipos (codigo, nome, valor)
+valeus (4,"Socimed 50%",300.000);
+
+----------------------------
+
+insert exames (codigo, nome, observacao)
+values (1,"Hemograma","Exame de sangue em Jejum");
+
+insert exames (codigo, nome, observacao)
+values (2,"Raio X","Sem obs");
+
+insert exames (codigo, nome, observacao)
+values (3,"Ultrassonografia","Sem obs");
+
+insert exames (codigo, nome, observacao)
+values (4,"Tomografia","Sem obs");
+
+----------------------------
+
+insert medicamentos (codigo,nome,substancia,posologia,laboratorio,contraindicacoes)
+values (1,"Paracetamol 500mg","Paracetamol","1 comprimido a cada 8 horas","Laboratorio Bayer","uso moderado");
+
+insert medicamentos (codigo,nome,substancia,posologia,laboratorio,contraindicacoes)
+values (2,"Dipirona","Dipirona","30 gotas a cada 6 horas","Laboratorio Aché","uso moderado");
+
+insert medicamentos (codigo,nome,substancia,posologia,laboratorio,contraindicacoes)
+values (3,"Dorflex","Paracetamol","1 comprimido a cada 8 horas","Laboratorio Eurofarma","uso moderado");
+
+insert medicamentos (codigo,nome,substancia,posologia,laboratorio,contraindicacoes)
+values (4,"Nimesulida","Nimesulida","1 comprimido a cada 12 horas","Laboratorio Búrigo","uso moderado");
+
+----------------------------
+
+insert pacientes (codigo,nome,rg,cpf,endereco,numero,complemento,bairro,cep,residencia,celular)
+values (1,"Ana Maria",123,123,"Rua São João",123,"Criciúma","Centro",8800123,123,123);
+
+insert pacientes (codigo,nome,rg,cpf,endereco,numero,complemento,bairro,cep,residencia,celular)
+values (2,"Gustavo",465,456,"Rua Roque",456,"Içara","Centro",8800456,456,456);
+
+insert pacientes (codigo,nome,rg,cpf,endereco,numero,complemento,bairro,cep,residencia,celular)
+values (3,"Pedro",789,789,"Rua São Sebastião",789,"Joinvile","Centro",8800789,789,789);
+
+insert pacientes (codigo,nome,rg,cpf,endereco,numero,complemento,bairro,cep,residencia,celular)
+values (4,"Cristiane",147,147,"Rua São Caetano",147,"Turvo","Centro",8800147,147,147);
+
+----------------------------
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (1,"2023/10/01","8:00",1,1,1,1);
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (2,"2023/06/13","10:30",2,1,3,1);
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (3,"2023/01/22","17:20",1,1,2,1);
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (4,"2023/8/05","9:15",3,2,1,2);
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (5,"2023/12/15","13:30",4,3,1,2);
+
+insert consultas (codigo, dataconsulta,horaconsulta,codpaciente,codconvenio,codmedico,codtipo)
+values (6,"2023/11/08","15:30",2,1,2,1);
+
+----------------------------
+
+insert prontuarios (codigo,codpaciente,codmedicamento,posologia,datainicio,datafim,codexame,dataexame,resultado,observacoes)
+values (1,1,2,"30 gotas a cada 6 horas","2023/10/01","2023/10/03",2,"2023/10/01","dores de cabeça - sinusite","retorno em 30 dias");
+
+insert prontuarios (codigo,codpaciente,codmedicamento,posologia,datainicio,datafim,codexame,dataexame,resultado,observacoes)
+values (2,2,1,"1 comprimido a cada 8 horas","2023/08/28","2023/08/30",2,"2023/08/28","anemia - falta de vitaminas","retorno em 60 dias");
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) RESOLUÇÃO LISTA DE EXERCÍCIOS 01
+
+1. 
+select * from cargos;
+
+2.
+select codigo, descricao 
+from convenios;
+
+3. 
+select codigo, nome, rg, cpf 
+from funcionarios;
+
+4. 
+select codigo, nome, codcargo
+from funcionarios;
+
+5.
+select codigo, nome, crm, especialidade
+from medicos;
+
+6.
+select codigo,nome,valor
+from tipos;
+
+7.
+select codigo,nome,observacao
+from exames;
+
+8.
+select codigo,nome,laboratorio
+from medicamentos;
+
+9.
+select nome,cpf,celular,residencial
+from pacientes;
+
+10.
+select codigo,dataconsulta,horaconsulta,codmedico
+from consultas;
+
+11.
+select codigo,datainicio,codpaciente,observacoes
+from prontuarios;
+
+12.
+select * from cargos
+where nome = "Enfermeiro";
+
+13.
+select codigo,nome,datainicio
+from convenios
+where nome like "U%";
+
+14.
+select codigo,nome,cpf
+from funcionarios
+where nome like "%Maria%";
+
+15.
+select funcionarios.codigo,funcionarios.nome,funcionarios.celular
+from funcionarios, cargos
+where funcionarios.codcargo = cargos.codigo
+and cargos.nome = "enfermeiro"
+
+
+16.
+select nome,cpf,residencial
+from funcionarios
+where bairro = "Centro";
+
+17.
+select codigo,nome,crm
+from medicos
+where especialidade = "Pediatra";
+
+18.
+select nome,crm,especialidade
+from medicos
+where area = "Ortopedia";
+
+19.
+select nome,valor
+from tipos
+where valor >= 200
+and valor <= 500;  
+
+20.
+select codigo,nome
+from medicamentos
+where laboratorio like "%Bayer%";
+
+21.
+select codigo,nome,celular
+from pacientes
+where bairro = "Centro"
+and complemento = "Criciúma";
+
+
+22.
+select consultas.codigo,consultas.dataconsulta,consultas.horaconsulta,consultas.codpaciente, medicos.nome
+from consultas, medicos
+where consultas.codmedico = medicos.codigo
+and medicos.nome like "%Aline";
+
+23.
+select codigo, datainicio, datafim, codigo
+from prontuarios
+where datainicio like "%10%"
+and datainicio like "2023%"
+
+24.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome, pacientes.nome
+from consultas, medicos, pacientes
+where dataconsulta like "%10%"
+and dataconsulta like "2023%"
+
+25.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome, pacientes.nome
+from consultas, medicos, pacientes, convenios
+
+where consultas.codmedico = medicos.codigo
+and consultas.codpaciente = pacientes.codigo
+and consultas.codconvenio = convenios.codigo
+and convenios.nome = "Unimed"
+
+26.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome, pacientes.nome
+from consultas, medicos, pacientes, convenios
+
+where consultas.codmedico = medicos.codigo
+and consultas.codpaciente = pacientes.codigo
+and consultas.codconvenio = convenios.codigo
+and convenios.nome = "Unimed"
+
+27.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome
+from consultas, pacientes
+where consultas.codpaciente = pacientes.codigo
+and pacientes.nome = "Ana Maria"
+and dataconsulta like "%10%"
+and dataconsulta like "%2023%"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4) RESOLUÇÃO LISTA DE EXERCÍCIOS 02
+
+1.
+select funcionarios.codigo, funcionarios.nome, cargos.nome
+from funcionarios, cargos
+where funcionarios.codcargo = cargos.codigo;
+
+2.
+select codigo, nome, cpf, crm, especialidade    //Foi utilizado o CPF ao invez do Telefone para a SELECT
+from medicos
+
+3.
+select consultas.codigo, tipos.nome, tipos.valor
+from tipos, consultas
+
+4.
+select codigo, nome, observacao
+from exames
+
+5.
+select codigo, nome, datainicio
+from convenios
+
+6.
+select codigo, nome, posologia, laboratorio
+from medicamentos
+
+7.
+select codigo, nome, endereco, celular, residencial  //Telefone substituido por telefone Celular e Residencial
+from pacientes
+
+8.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome
+from consultas, medicos
+
+9.
+select codigo, datainicio, codpaciente, observacoes
+from prontuarios
+
+10.
+select * from cargos 
+where nome = "enfermeiro"
+
+11.
+select codigo, nome, datainicio
+from convenios
+where datainicio like "2023%" 
+
+12.
+select codigo, nome, endereco, residencial, celular
+from funcionarios
+where nome like "Ana%"
+and endereco like "%Criciúma%"
+
+13.
+select funcionarios.codigo, funcionarios.nome, funcionarios.celular, funcionarios.endereco
+from funcionarios
+where codcargo = "2"
+
+14.
+select nome, cpf, celular, residencial, endereco
+from funcionarios
+where bairro = "Centro"
+and endereco like "%Criciúma%"
+
+15.
+select codigo, nome, crm  //A tabela não possui o coluna "Telefone"
+from medicos
+where especialidade = "Ortopedia Infantil"
+
+16.
+select codigo, nome, crm, especialidade
+from medicos
+where area = "Ortopedia"
+and senha = "654"        //O campo "cidade" foi substituido por "senha"
+
+17.
+select consultas.codigo, tipos.nome, tipos.valor
+from tipos, consultas
+where tipos.codigo = consultas.codigo
+and valor >= 100
+and valor <= 300
+
+18.
+select codigo, nome
+from medicamentos
+where laboratorio = "Laboratorio Bayer"
+
+19.
+select codigo, nome, celular
+from pacientes
+where bairro = "Jardim Angélica"
+and complemento = "Criciúma"
+
+20.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, consultas.codpaciente
+from consultas, medicos
+where consultas.codigo = medicos.codigo 
+and medicos.nome = "Dr. Andre Luiz"
+and medicos.especialidade = "Endocrinologista Infantil"
+
+21. 
+select prontuarios.codigo, prontuarios.datainicio, prontuarios.datafim, pacientes.nome
+from prontuarios, pacientes
+where prontuarios.codigo = pacientes.codigo
+and prontuarios.datainicio like "%08%"
+and prontuarios.datafim like "%08%"
+and pacientes.codigo = "2"
+
+22.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome, pacientes.nome
+from consultas, medicos, pacientes
+where consultas.codigo = medicos.codigo
+and consultas.codigo = pacientes.codigo
+and consultas.dataconsulta like "%2023%"
+
+23.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, medicos.nome, pacientes.nome
+from consultas, medicos, pacientes, convenios
+where consultas.codigo = medicos.codigo
+and consultas.codigo = pacientes.codigo
+and consultas.codigo = convenios.codigo
+and convenios.nome = "Unimed"
+
+24.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome
+from consultas, pacientes, tipos
+where consultas.codigo = pacientes.codigo
+and consultas.codigo = tipos.codigo
+and tipos.nome = "Particular Integral"
+
+25.
+select consultas.codigo, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome
+from consultas, pacientes
+where consultas.codigo = pacientes.codigo
+and pacientes.nome = "Ana Maria"
+and consultas.dataconsulta > "2023-08-01"
+and consultas.dataconsulta < "2023-10-31"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5) CONCEITO DE VIEWS
+
+
+VIEWS são funções em servem para armazenar códigos, eliminando a nescessidade de digitar o select sempre para aquela determinarada tarefa.
+
+
+CREATE VIEW numero_quartos AS                     // Primero definimos a nome da função VIEW
+	SELECT Número, Valor FROM quartos         // Em seguida, inserimos o código SELECT - (O tab é nescessário)
+
+
+Agora, a tarefa de exibir o número e o valor dos quartos está armazenada dentro da VIEW "numero_quartos". Caso ela seja chamada dentro do código, executará o linha select atrelada a VIEW:
+
+
+SELECT * FROM numero_quartos 
+
+
+Logo após a criação de uma VIEW, elas ficam armazenadas abaixo do campo TABLE do SQL.
+
+
+
+

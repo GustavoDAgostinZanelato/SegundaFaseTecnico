@@ -1,0 +1,30 @@
+
+SELECT *                               //Vai mostras todas as linhas das tabelas mescladas
+FROM Cargos                            //Indico qual será a primeira tabela no processo de mesclagem
+INNER JOIN Convenios                   //Por meio do comando "join", indico qual será a segunda tabela + clausula INNER
+ON Cargos.codigo = Convenios.codigo    //Especifico por qual coluna será possível realizar a mesclagem
+
+//O join de tabelas somente é possivel se ambas apresentarem uma coluna que possua mesma informação ou valor
+
+
+
+//Nem sempre as colunas de ambas as tabelas váo encontar um par correspondente na outra tabela. Elas podem ser incluidas na mesclagem final, mas suas
+  informações aparecerão como vazias (null).
+//Existem 4 tipos de Selects para esses casos:
+
+1. INNER join: mostra todas as colunas completas, que apresentam seus respectivos pares;
+2. LEFT join: mostra as colunas da esquerda que não possuem pares (null);
+3. RIGHT join: mostra as colunas da direita que não possuem pares (null);
+4. FULL join: mostra todas as linhas do meu join, tanto as completas como incompletas.
+
+
+
+
+SELECT a.nome, a.descricao, b.codigo, b.datainicio                             
+FROM Cargos AS a                                       //A cláusula "AS" é utilizada para atribuir um novo nome a variável (Cargos agora passa a ser chamada          
+INNER JOIN Convenios AS b                                de a, assim como Convenios de b), simplificando o código.
+ON a.codigo = b.codigo    
+
+
+
+//É chamado de "SelfJoin" a mesclagem realizada entre a mesma tabela, por exemplo, juntar a tabela Cargos com ela mesma.
